@@ -1,7 +1,6 @@
 package env
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -9,13 +8,14 @@ import (
 
 var AdminPassword string
 var AllowOrigin string
+var Port string
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		fmt.Println("Error: Cannot read .env file")
-		panic(err.Error())
-	}
+	_ = godotenv.Load()
 	AdminPassword = os.Getenv("ADMIN_PASSWORD")
 	AllowOrigin = os.Getenv("ALLOW_ORIGIN")
+	Port = os.Getenv("PORT")
+	if Port == "" {
+		Port = "8080"
+	}
 }
