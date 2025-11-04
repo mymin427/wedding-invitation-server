@@ -1,4 +1,4 @@
-module github.com/juhonamnam/wedding-invitation-server
+module github.com/mymin427/wedding-invitation-server
 
 go 1.18
 
