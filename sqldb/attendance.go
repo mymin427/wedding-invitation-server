@@ -51,6 +51,8 @@ func GetAttendance(offset, limit int) ([]types.AttendanceItem, error) {
 		if err := rows.Scan(&it.Id, &it.Side, &it.Name, &it.Meal, &it.Count, &it.Timestamp); err != nil {
 			return nil, err
 		}
+		loc, _ := time.LoadLocation("Asia/Seoul")
+		it.Datetime = time.Unix(it.Timestamp, 0).In(loc).Format("2006-01-02 15:04:05-07:00")
 		items = append(items, it)
 	}
 	return items, nil

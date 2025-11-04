@@ -14,6 +14,7 @@ type AttendanceItem struct {
     Meal      string `json:"meal"`
     Count     int    `json:"count"`
     Timestamp int64  `json:"timestamp"`
+    Datetime  string `json:"datetime"`
 }
 
 type AttendanceListResponse struct {
